@@ -1,15 +1,45 @@
 # ESXi Login Page Scanner
 
-This repository contains a Bash script designed to scan specified subnets for ESXi login pages. It checks each IP in the subnets for an open 443 port and attempts to identify web pages that include the "esxUiApp" marker, indicating an ESXi login page.
+This Bash script is designed to scan subnets listed in a file for ESXi login pages by checking each IP address for an open 443 port and attempting to identify pages that include the "esxUiApp" marker. This script operates asynchronously to efficiently handle multiple IPs at once.
 
 ## Prerequisites
 
-Before running this script, make sure you have `curl` installed on your system as it is used for making HTTP requests to the IPs.
-
+- `bash`
+- `curl`
+- Access to network utilities like `/dev/tcp/`
+  
 ## Installation
 
-Clone this repository to your local machine using the following command:
+To use this script, clone this repository to your machine:
 
 ```bash
-git clone https://github.com/yourusername/esxi-login-scanner.git
+git clone https://github.comDomainhizmetleri/esxi-login-page-finder-in-subnets.git
 cd esxi-login-scanner
+```
+
+## Configuration
+Before running the script, ensure you have a subnets.txt file in the root directory of this repository. This file should contain all subnets you want to scan, one per line, in CIDR format. Example of subnets.txt:
+
+```bash
+1.2.3.4/24
+4.5.6.7/19
+etc.
+
+```
+
+## Usage
+Execute the script from the command line:
+
+```bash
+bash esxi_scanner.sh
+```
+The script scans each subnet asynchronously, checks for open 443 ports, and attempts to find ESXi login pages. IPs with ESXi login pages are saved to esxi_login_pages.txt.
+
+## Output
+The script outputs the results to esxi_login_pages.txt, which will contain the IPs of servers where an ESXi login page was detected. Additionally, it prints the total count of found IPs to the terminal after the completion of the scan.
+
+## Contributing
+Contributions to improve the script are welcome. Feel free to fork the repository, make changes, and submit a pull request. If you encounter any issues or have suggestions, please open an issue in this repository.
+
+## Thanks
+Special thanks to ChatGPT for assisting in the scripting and documentation process of this project.
