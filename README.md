@@ -13,8 +13,8 @@ This Bash script is designed to scan subnets listed in a file for ESXi login pag
 To use this script, clone this repository to your machine:
 
 ```bash
-git clone https://github.comDomainhizmetleri/esxi-login-page-finder-in-subnets.git
-cd esxi-login-scanner
+git clone https://github.com/Domainhizmetleri/esxi-login-page-finder-in-subnets.git
+cd esxi-login-page-finder-in-subnets
 ```
 
 ## Configuration
