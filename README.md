@@ -31,7 +31,7 @@ etc.
 Execute the script from the command line:
 
 ```bash
-bash esxi_scanner.sh
+bash esxi_finder.sh
 ```
 The script scans each subnet asynchronously, checks for open 443 ports, and attempts to find ESXi login pages. IPs with ESXi login pages are saved to esxi_login_pages.txt.
 
